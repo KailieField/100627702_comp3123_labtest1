@@ -30,7 +30,7 @@
 
 
 // Re: hint -- using fs and path modules
-const fileSystem = require('fs').promises;
+const fileSystem = require('fs');
 const filePath = require('path');
 
 // Re: create logsDirectory

@@ -42,20 +42,21 @@ const question1 = () => {
     const promise = Promise.resolve(mixedArray);
 
     lowerCaseWords(promise)
-    .then(mixedArrayFiltered => {
+        .then(mixedArrayFiltered => {
         console.log(mixedArrayFiltered);
     })
     .catch(error => {
-        console.log(error.message);
+        console.error(error.message);
     });
 
     // Testing Promise Rejection
     const testPromise = Promise.resolve("Kailie"); 
-    lowerCaseWords(testPromise).then(mixedArrayFiltered => {
+    lowerCaseWords(testPromise)
+        .then(mixedArrayFiltered => {
         console.log(mixedArrayFiltered);
     })
-    .catch(error => {
-        console.log(error.message);
+        .catch(error => {
+        console.error(error.message);
     });
 };
 

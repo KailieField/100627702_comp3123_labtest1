@@ -48,7 +48,7 @@ function removeLogFiles(){
 
             // combining fileName and logsDirectory into single path
             // direction to unlink to delete specific file -- move to next log until empty
-            fileSystem.unlink(filePath.join(logsDirectory, fileName));
+            fileSystem.unlinkSync(filePath.join(logsDirectory, fileName));
             console.log(`delete files...${fileName}`);
 
 

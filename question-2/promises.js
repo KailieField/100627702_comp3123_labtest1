@@ -34,7 +34,7 @@ const rejectedPromise = () => {
     setTimeout(() => {
 
         // setting constant rejectedPromise message
-        const rejectedPromise = {'error' : 'delayed exception!'}
+        const rejectedPromise = console.error({'error' : 'delayed exception!'})
 
         // try-catch block
         try 
@@ -44,7 +44,7 @@ const rejectedPromise = () => {
         catch(rejectedPromise) 
         {
             // return formatted message to console as per deliverable request
-            return console.error(`${rejectedPromise}`);          
+            return `${rejectedPromise}`;          
         }
 
     }, 500) // <-- kept 500ms

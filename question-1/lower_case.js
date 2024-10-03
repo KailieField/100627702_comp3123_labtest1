@@ -20,17 +20,25 @@
 --------------------------------------------------------------------------------------------------*/ 
 //------ [ ANSWER ]:
 
-// Creating Promise -- resolve/reject to pass to main method
+// Re: function named lowerCaseWords
+//      -- bringing return promise condition into function for ease
 const lowerCaseWords = (promise) => {
 
     return promise
-        .then(mixedArray => {
-        if(!Array.isArray(mixedArray)) {
+        .then(mixedArray => 
+        {
+
+        if(!Array.isArray(mixedArray)) 
+        {   
+            // Update: rejection error message to user
             return Promise.reject(new Error("----- FAILED:: NOT AN ARRAY!"));
+
         }
         return mixedArray
-        // filtering elements of the mixed array to search for string
+            // filtering elements of the mixed array to search for string types
             .filter(element => typeof element == 'string')
+
+            // populating results, transforming strings toLowerCase
             .map(element => element.toLowerCase());
     });
 
@@ -39,27 +47,29 @@ const lowerCaseWords = (promise) => {
 // MAIN METHOD 
 const question1 = () => {
 
-    // Testing Output for Question1 deliverable -- passing to console
+    // Testing Output -- passing to console
     const mixedArray = ['PIZZA', 10, true, 25, false, 'Wings'];
     const promise = Promise.resolve(mixedArray);
 
+    // calling function, passing the mixedArray in its filtered state
     lowerCaseWords(promise)
         .then(mixedArrayFiltered => {
         console.log("New Filtered Array : ", mixedArrayFiltered);
     });
 
-    // Testing Promise Rejection
-    const testPromise = Promise.resolve("Kailie"); 
+    // Testing Rejection
+    const testPromise = Promise.resolve("Kailie Field's odd way of visualizing content"); 
     lowerCaseWords(testPromise)
         .then(mixedArrayFiltered => {
         console.log(mixedArrayFiltered);
     })
-        .catch(error => {
-        console.error(error.message);
+        .catch(Error => {
+        console.error(Error.message);
     });
 };
 
 
 question1();
+
 
 

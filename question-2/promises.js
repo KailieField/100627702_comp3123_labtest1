@@ -16,28 +16,40 @@
            and then output to the console.
 --------------------------------------------------------------------------------------------------*/ 
 //------ [ ANSWER ]:
+
+// Re: Resolved Promise
 const resolvedPromise = () => {
 
     setTimeout(() => {
-    
-        return console.log({'Resolved': 'delayed success.'});
+        
+        // return formatted message to console as per deliverable request
+        return console.log({'message' : 'delayed success.'});
 
-    }, 500)
+    }, 500) // <-- kept 500 ms
 }
 
+// Re: Rejected Promise
 const rejectedPromise = () => {
     
     setTimeout(() => {
 
-        const rejectedPromise = 'there has been a Delayed Exception';
-        try {
+        // setting constant rejectedPromise message
+        const rejectedPromise = {'error' : 'delayed exception!'}
+
+        // try-catch block
+        try 
+        {
             throw rejectedPromise
         }    
-        catch(rejectedPromise) {
+        catch(rejectedPromise) 
+        {
+            // return formatted message to console as per deliverable request
             return console.error(`${rejectedPromise}`);          
         }
-    }, 500)
+
+    }, 500) // <-- kept 500ms
 }
+
 
 resolvedPromise()
 rejectedPromise()

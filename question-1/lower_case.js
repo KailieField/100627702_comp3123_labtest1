@@ -22,31 +22,30 @@
 
 // Creating Promise -- resolve/reject to pass to main method
 const lowerCaseWords = (promise) => {
+
     return promise
         .then(mixedArray => {
         if(!Array.isArray(mixedArray)) {
             return Promise.reject(new Error("----- FAILED:: NOT AN ARRAY!"));
         }
         return mixedArray
+        // filtering elements of the mixed array to search for string
             .filter(element => typeof element == 'string')
             .map(element => element.toLowerCase());
     });
 
 };
 
-// MAIN METHOD
+// MAIN METHOD 
 const question1 = () => {
 
-    // Testing Output for Question1 deliverable
+    // Testing Output for Question1 deliverable -- passing to console
     const mixedArray = ['PIZZA', 10, true, 25, false, 'Wings'];
     const promise = Promise.resolve(mixedArray);
 
     lowerCaseWords(promise)
         .then(mixedArrayFiltered => {
-        console.log(mixedArrayFiltered);
-    })
-    .catch(error => {
-        console.error(error.message);
+        console.log("New Filtered Array : ", mixedArrayFiltered);
     });
 
     // Testing Promise Rejection
